@@ -9,7 +9,8 @@ class Heap {
 
 	private:
 
-		int * heapArray;
+		bool max;
+		vector<int> heap;
 		int size;
 
 	public:
@@ -22,8 +23,10 @@ class Heap {
 		int getMin();
 		int getMax();
 		int getSize();
-		bool search;
+		bool search(int target);
 		void swapLast(int index);
+		int findIndex(int target);
+		void orderLast();
 
 };
 

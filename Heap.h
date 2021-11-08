@@ -22,7 +22,7 @@ class Heap {
 		int getMin();
 		int getMax();
 		int getSize();
-		bool search;
+		bool search(int target);
 		void swapLast(int index);
 
 };

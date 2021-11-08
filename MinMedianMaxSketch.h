@@ -1,3 +1,6 @@
+#ifndef MINMEDIANMAXSKETCH_H
+#define MINMEDIANMAXSKETCH_H
+
 #include "string"
 #include "iostream"
 
@@ -7,34 +10,41 @@ class MinMedianMaxSketch
 {
 	private:
 		int size;
+		int median;
+		int min;
+		int max;
+		Heap minHeap;
+		Heap maxHeap;
 	public:
 		MinMedianMaxSketch()
 		{
 		}
 
-		insert(int newElement)
+		void insert(int newElement)
 		{
 		}
 
-		remove(int goneElement)
+		void remove(int goneElement)
 		{
 		}
 
-		get_median()
+		int get_median()
 		{}
 
-		get_minimum()
+		int get_minimum()
 		{}
 
-		get_maximum()
+		int get_maximum()
 		{
 		}
 
-		get_size()
+		int get_size()
 		{
 		}
 
-		search(int findElement)
+		bool search(int findElement)
 		{}
 
 }
+
+#endif MINMEDIANMAXSKETCH_H

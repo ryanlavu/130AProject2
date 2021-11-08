@@ -9,7 +9,8 @@ class Heap {
 
 	private:
 
-		int * heapArray;
+		bool max;
+		vector<int> heap;
 		int size;
 
 	public:

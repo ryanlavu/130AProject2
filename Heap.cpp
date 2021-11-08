@@ -19,23 +19,7 @@ Heap::Heap(bool isMax) {
 void Heap::insert(int element) {
 
 	heap.push_back(element);
-	for(int i = heap.size(); i > 0; i = ((i - 1) / 2)) {
-
-		if(max && (heap[i] > heap[(i - 1) / 2])) {
-			
-			int temp = heap[i];
-			heap[i] = heap[(i - 1) / 2];
-			heap[(i - 1) / 2] = temp;
-
-		} else if (!max && (heap[i] < heap[(i - 1) / 2])) {
-
-			int temp = heap[i];
-			heap[i] = heap[(i - 1) / 2];
-			heap[(i - 1) / 2] = temp;
-
-		}
-
-	}
+	orderLast();
 
 }
 
@@ -44,7 +28,36 @@ void Heap::insert(int element) {
  */
 void Heap::remove(int target) {
 
+	int targetIndex = -1;
+	for(int i = 0; i < heap.size(); i++) {
 	
+		if(heap[i] == target) targetIndex = i;
+
+	}
+
+	if(targetIndex == -1) return;
+
+	int temp = heap[targetIndex];
+	heap[targetIndex] = heap.back();
+	heap.pop_back();
+
+	for(int i = targetIndex; i > 0; i = ((i - 1) / 2)) {
+
+		if(max && (heap[i] > heap[(i - 1) / 2])) {
+
+			temp = heap[i];
+			heap[i] = heap[(i - 1) / 2];
+			heap[(i - 1) / 2] = temp;
+
+		} else if (!max && (heap[i] < heap[(i - 1) / 2])) {
+	
+			temp = heap[i];
+			heap[i] = heap[(i - 1) / 2];
+			heap[(i - 1) / 2] = temp;
+
+		}
+		
+	}
 
 }
 
@@ -59,6 +72,10 @@ int Heap:getRoot() {
  * return: int value in the root
  */
 int Heap::extractRoot() {
+
+	int value = getRoot();
+	remove(getRoot());
+	return value;
 
 }
 
@@ -98,11 +115,52 @@ bool Heap::search(int target) {
  */
 void Heap::swapLast(int target) {
 
+	int targetIndex = findIndex(target);
+	if(targetIndex == -1) return;
+	
+	int temp = heap[targetIndex];
+	heap[targetIndex] = heap[heap.size() - 1];
+	heap[heap.size() - 1] = temp;
+
+}
+
+/* Find index function
+ * int target: element that you want to find index of
+ * return: index of the target element and -1 if not found
+ */
+int Heap::findIndex(int target) {
+
+	for(int i = 0; i < heap.size(); i++) {
+
+		if(heap[i] == target) return i;
+
+	}
+
+	return -1;
+
 }
 
 /* Order last function
  * Bubbles up the last element in vector to sort
  */
 void Heap::orderLast() {
+
+	for(int i = heap.size(); i > 0; i = ((i - 1) / 2)) {
+
+		if(max && (heap[i] > heap[(i - 1) / 2])) {
+			
+			int temp = heap[i];
+			heap[i] = heap[(i - 1) / 2];
+			heap[(i - 1) / 2] = temp;
+
+		} else if (!max && (heap[i] < heap[(i - 1) / 2])) {
+
+			int temp = heap[i];
+			heap[i] = heap[(i - 1) / 2];
+			heap[(i - 1) / 2] = temp;
+
+		}
+
+	}
 
 }

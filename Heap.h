@@ -25,6 +25,8 @@ class Heap {
 		int getSize();
 		bool search(int target);
 		void swapLast(int index);
+		int findIndex(int target);
+		void orderLast();
 
 };
 

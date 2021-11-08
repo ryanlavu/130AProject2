@@ -13,6 +13,7 @@ class MinMedianMaxSketch
 		int median;
 		int min;
 		int max;
+		bool found;
 		Heap minHeap;
 		Heap maxHeap;
 	public:

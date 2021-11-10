@@ -5,25 +5,26 @@
 
 using namespace std;
 
+template<class T>
 class Heap {
 
 	private:
 
 		bool max;
-		vector<int> heap;
+		vector<T> heap;
 		int size;
 
 	public:
 
 		Heap(bool isMax);
-		void insert(int element);
-		void remove(int target);
-		int getRoot();
-		int extractRoot();
-		int getMin();
-		int getMax();
-		int getSize();
-		bool search(int target);
+		void insert(T element);
+		void remove(T target);
+		T getRoot();
+		T extractRoot();
+		T getMin();
+		T getMax();
+		T getSize();
+		bool search(T target);
 		void orderLast();
 
 };

@@ -9,14 +9,14 @@ Heap::Heap(bool isMax) {
 
 	max = isMax;
 	size = 0;
-	heap = new vector<int>();
+	heap = new vector<T>();
 
 }
 
 /* Insert function
  * int element: element you want to insert into heap
  */
-void Heap::insert(int element) {
+void Heap::insert(T element) {
 	
 	// Insert element into the last slot of tree
 	heap.push_back(element);
@@ -30,7 +30,7 @@ void Heap::insert(int element) {
 /* Remove function
  * int target: element you want to remove from heap
  */
-void Heap::remove(int target) {
+void Heap::remove(T target) {
 
 	int targetIndex = -1;
 
@@ -45,7 +45,7 @@ void Heap::remove(int target) {
 	if(targetIndex == -1) return;
 
 	// Replace the value at targetIndex with the last value
-	int temp = heap[targetIndex];
+	T temp = heap[targetIndex];
 	heap[targetIndex] = heap.back();
 
 	// Remove the last element which should be the target
@@ -97,28 +97,28 @@ void Heap::remove(int target) {
 
 		if(max && (heap[targetIndex] < heap[leftChild]) && left) {
 
-			int temp = heap[targetIndex];
+			T temp = heap[targetIndex];
 			heap[targetIndex] = heap[leftChild];
 			heap[leftChild] = temp;
 			targetIndex = leftChild;
 
 		} else if(max && (heap[targetIndex] < heap[rightChild]) && right) {
 
-			int temp = heap[targetIndex];
+			T temp = heap[targetIndex];
 			heap[targetIndex] = heap[rightChild];
 			heap[rightChild] = temp;
 			targetIndex = rightChild;
 
 		} else if(!max && (heap[targetIndex] > heap[leftChild]) && left) {
 
-			int temp = heap[targetIndex];
+			T temp = heap[targetIndex];
 			heap[targetIndex] = heap[leftChild];
 			heap[leftChild] = temp;
 			targetIndex = leftChild;
 
 		} else if(!max && (heap[targetIndex] > heap[rightChild]) && right) {
 
-			int temp = heap[targetIndex];
+			T temp = heap[targetIndex];
 			heap[targetIndex] = heap[rightChild];
 			heap[rightChild] = temp;
 			targetIndex = rightChild;
@@ -132,7 +132,7 @@ void Heap::remove(int target) {
 /* Get root function
  * return: int value in the root
  */
-int Heap:getRoot() {
+T Heap:getRoot() {
 
 	// Root should be at 0 index of the vector
 	return heap[0];
@@ -142,10 +142,10 @@ int Heap:getRoot() {
 /* Extract root function
  * return: int value in the root
  */
-int Heap::extractRoot() {
+T Heap::extractRoot() {
 
 	// Save value of root in order to not lose when removing
-	int value = getRoot();
+	T value = getRoot();
 
 	// Call removed function targeting the value of the root
 	remove(value);
@@ -158,12 +158,12 @@ int Heap::extractRoot() {
 /* Get minimum function
  * return: int value of smallest value
  */
-int Heap::getMin() {
+T Heap::getMin() {
 
 	// If min heap then simply return the root
 	if(!max) return getRoot();
 
-	int min = heap[0];
+	T min = heap[0];
 
 	// If max heap then iterate through the entire vector
 	for(int i = 1; i < heap.size(); i++) {
@@ -177,12 +177,12 @@ int Heap::getMin() {
 /* Get maximum function
  * return: int value of largest value
  */
-int Heap::getMax() 
+T Heap::getMax() 
 
 	// If max heap then simply return the root
 	if(max) return getRoot();
 
-	int max = heap[0];
+	T max = heap[0];
 
 	// If min heap then iterate through the entire vector
 	for(int i = 1; i < heap.size(); i++) {
@@ -202,7 +202,7 @@ int Heap::getSize() { return size; }
  * int target: value of element you want to find
  * return: boolean if element is found
  */
-bool Heap::search(int target) {
+bool Heap::search(T target) {
 
 	// Iterate through the entire vector in order to find target element
 	for(int i = 0; i < heap.size(); i++) {
@@ -225,13 +225,13 @@ void Heap::orderLast() {
 
 		if(max && (heap[i] > heap[(i - 1) / 2])) {
 			
-			int temp = heap[i];
+			T temp = heap[i];
 			heap[i] = heap[(i - 1) / 2];
 			heap[(i - 1) / 2] = temp;
 
 		} else if (!max && (heap[i] < heap[(i - 1) / 2])) {
 
-			int temp = heap[i];
+			T temp = heap[i];
 			heap[i] = heap[(i - 1) / 2];
 			heap[(i - 1) / 2] = temp;
 

@@ -5,6 +5,7 @@
 /* Constructor
  * bool isMax: true = max heap, false = min heap
  */
+template <class T>
 Heap::Heap(bool isMax) {
 
 	max = isMax;
@@ -16,6 +17,7 @@ Heap::Heap(bool isMax) {
 /* Insert function
  * int element: element you want to insert into heap
  */
+template <class T>
 void Heap::insert(T element) {
 	
 	// Insert element into the last slot of tree
@@ -30,6 +32,7 @@ void Heap::insert(T element) {
 /* Remove function
  * int target: element you want to remove from heap
  */
+template <class T>
 void Heap::remove(T target) {
 
 	int targetIndex = -1;
@@ -132,6 +135,7 @@ void Heap::remove(T target) {
 /* Get root function
  * return: int value in the root
  */
+template <class T>
 T Heap:getRoot() {
 
 	// Root should be at 0 index of the vector
@@ -142,6 +146,7 @@ T Heap:getRoot() {
 /* Extract root function
  * return: int value in the root
  */
+template <class T>
 T Heap::extractRoot() {
 
 	// Save value of root in order to not lose when removing
@@ -158,6 +163,7 @@ T Heap::extractRoot() {
 /* Get minimum function
  * return: int value of smallest value
  */
+template <class T>
 T Heap::getMin() {
 
 	// If min heap then simply return the root
@@ -177,6 +183,7 @@ T Heap::getMin() {
 /* Get maximum function
  * return: int value of largest value
  */
+template <class T>
 T Heap::getMax() 
 
 	// If max heap then simply return the root
@@ -202,6 +209,7 @@ int Heap::getSize() { return size; }
  * int target: value of element you want to find
  * return: boolean if element is found
  */
+template <class T>
 bool Heap::search(T target) {
 
 	// Iterate through the entire vector in order to find target element
@@ -218,6 +226,7 @@ bool Heap::search(T target) {
 /* Order last function
  * Bubbles up the last element in vector to sort
  */
+template <class T>
 void Heap::orderLast() {
 
 	// Starting at the last element compare with it's parent nodes

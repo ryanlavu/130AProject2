@@ -5,14 +5,15 @@
 #include "iostream"
 
 using namepsace std;
-
+template <class T>
 class MinMedianMaxSketch
 {
 	private:
+
 		int size;
-		int median;
-		int min;
-		int max;
+		T median;
+		T min;
+		T max;
 		bool found;
 		Heap minHeap;
 		Heap maxHeap;
@@ -21,21 +22,21 @@ class MinMedianMaxSketch
 		{
 		}
 
-		void insert(int newElement)
+		void insert(T newElement)
 		{
 		}
 
-		void remove(int goneElement)
+		void remove(T goneElement)
 		{
 		}
 
-		int get_median()
+		T get_median()
 		{}
 
-		int get_minimum()
+		T get_minimum()
 		{}
 
-		int get_maximum()
+		T get_maximum()
 		{
 		}
 
@@ -43,7 +44,7 @@ class MinMedianMaxSketch
 		{
 		}
 
-		bool search(int findElement)
+		bool search(T findElement)
 		{}
 
 }

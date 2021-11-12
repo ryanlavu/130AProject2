@@ -20,6 +20,14 @@ class Heap {
 		
 	}
 
+	void printOut()
+	{
+		for(int i = 0; i < size; i++)
+		{
+			cout << "for a " << max << " maxheap at index i=" << i << " is elememt ="<< heap[i] << endl;
+		}
+	}
+
 	/* Insert function
 	* int element: element you want to insert into heap
 	*/

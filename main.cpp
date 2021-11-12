@@ -57,6 +57,8 @@ int main(int argc, char *argv[]) {
 			deleteFile.close();
 
 			//report stats
+			minHeap.printOut();
+			maxHeap.printOut();
 			cout << "Min Heap:\n" << "Size = " << minHeap.getSize() << "\nMin = " << minHeap.getRoot() << "\nMax = " << minHeap.getMax() << endl;
 			cout << "Max Heap:\n" << "Size = " << maxHeap.getSize() << "\nMin = " << maxHeap.getRoot() << "\nMax = " << maxHeap.getMax() << endl;
 		}

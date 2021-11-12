@@ -67,6 +67,8 @@ int main(int argc, char *argv[]) {
 			//maxHeap.printOut();
 			cout << "Min Heap:\n" << "Size = " << minHeap.getSize() << "\nMin = " << minHeap.getMin() << "\nMax = " << minHeap.getMax() << endl;
 			cout << "Max Heap:\n" << "Size = " << maxHeap.getSize() << "\nMin = " << maxHeap.getMin() << "\nMax = " << maxHeap.getMax() << endl;
+			//cout << "is 99957 in maxHeap? " << maxHeap.search(99957) << endl;
+			maxHeap.printOut();
 		}
 		else
 		{

@@ -243,7 +243,7 @@ class Heap {
 	void orderLast() {
 
 		// Starting at the last element compare with it's parent nodes
-		for(int i = heap.size(); i > 0; i = ((i - 1) / 2)) {
+		for(int i = heap.size() - 1; i > 0; i = ((i - 1) / 2)) {
 
 			if(max && (heap[i] > heap[(i - 1) / 2])) {
 

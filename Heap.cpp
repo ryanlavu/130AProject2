@@ -130,6 +130,10 @@ class Heap {
 				heap[rightChild] = temp;
 				targetIndex = rightChild;
 
+			} else {
+
+				return;
+
 			}
 
 		}

@@ -24,6 +24,7 @@ class MinMedianMaxSketch
 
 		void insert(int newElement)
 		{
+			
 			if(size == 0)
 			{
 				maxHeap->insert(newElement);

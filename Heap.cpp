@@ -180,6 +180,8 @@ class Heap {
 
 		}
 
+		return min;
+
 	}
 
 	/* Get maximum function
@@ -199,6 +201,8 @@ class Heap {
 			if(heap[i] > max) max = heap[i];
 
 		}
+
+		return max;
 
 	}
 

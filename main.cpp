@@ -2,30 +2,30 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include "Heap.h"
-#include "Heap.cpp"
-#include "MinMedianMaxSketch.h"
+
 #include "MinMedianMaxSketch.cpp"
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
-		string heapOrSketch = argv[1]
-
+		string heapOrSketch = argv[1];
+		string query;
+		int queryToInt;
 
 		if(heapOrSketch == "heap")
 		{
-			Heap<int> maxHeap = new Heap(true);
-			Heap<int> minHeap = new Heap(false);
-
+			Heap<int> maxHeap = new Heap<int>(true);
+			Heap<int> minHeap = new Heap<int>(false);
+			
 			//insert into heaps
 			ifstream insertFile(argv[2]);
 			while(getline(insertFile, query))
 			{
 				if(query.empty())
 					break;
-				maxHeap.insert(query);
-				minHeap.insert(query);
+				queryToInt = stoi(query);
+				maxHeap.insert(queryToInt);
+				minHeap.insert(queryToInt);
 			}	
 			insertFile.close();
 
@@ -36,22 +36,22 @@ int main(int argc, char *argv[]) {
 			{
 				if(query.empty())
 					break;
-
-				if(maxHeap.getRoot() == query)
+				queryToInt = stoi(query);
+				if(maxHeap.getRoot() == queryToInt)
 				{
 					maxHeap.extractRoot();
 				}
 				else
 				{
-					maxHeap.remove(query);
+					maxHeap.remove(queryToInt);
 				}
-				if(minHeap.getRoot() == query)
+				if(minHeap.getRoot() == queryToInt)
 				{
 					minHeap.extractRoot();
 				}
 				else
 				{
-					minHeap.remove(query);
+					minHeap.remove(queryToInt);
 				}
 			}	
 			deleteFile.close();
@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
 		}
 		else
 		{
-			MinMedianMaxSketch<int> sketch = new MinMedianMaxSketch();
+			MinMedianMaxSketch<int> sketch = new MinMedianMaxSketch<int>();
 
 			//insert into sketch
 			ifstream insertFile(argv[2]);
@@ -70,7 +70,8 @@ int main(int argc, char *argv[]) {
 			{
 				if(query.empty())
 					break;
-				sketch.insert(query);
+				queryToInt = stoi(query);
+				sketch.insert(queryToInt);
 			}	
 			insertFile.close();
 
@@ -80,7 +81,8 @@ int main(int argc, char *argv[]) {
 			{
 				if(query.empty())
 					break;
-				sketch.remove(query);
+				queryToInt = stoi(query);
+				sketch.remove(queryToInt);
 			}	
 			deleteFile.close();
 

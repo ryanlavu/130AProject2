@@ -8,14 +8,7 @@ using namespace std;
 template<class T>
 class Heap {
 
-	private:
-
-		bool max;
-		vector<T> heap;
-		int size;
-
 	public:
-
 		Heap(bool isMax);
 		void insert(T element);
 		void remove(T target);
@@ -23,10 +16,16 @@ class Heap {
 		T extractRoot();
 		T getMin();
 		T getMax();
-		T getSize();
+		int getSize(){return size;}
 		bool search(T target);
 		void orderLast();
 
+		void setSize(int setTo){size = setTo;}
+		
+	private:
+		bool max;
+		vector<T> heap;
+		int size;
 };
 
 #endif

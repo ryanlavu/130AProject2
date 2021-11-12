@@ -1,7 +1,9 @@
 #include "Heap.h"
 
+#include <vector>
 #include <iostream>
 
+using namespace std;
 /* Constructor
  * bool isMax: true = max heap, false = min heap
  */
@@ -10,7 +12,7 @@ Heap::Heap(bool isMax) {
 
 	max = isMax;
 	size = 0;
-	heap = new vector<T>();
+	heap = new vector <T>();
 
 }
 
@@ -25,7 +27,7 @@ void Heap::insert(T element) {
 
 	// Function that bubbles up the last element
 	orderLast();
-	size++;
+	setSize(getSize() + 1);
 
 }
 
@@ -203,7 +205,8 @@ T Heap::getMax()
 /* Get size function
  * return: int value of heap size
  */
-int Heap::getSize() { return size; }
+//template <class T>
+//int Heap::getSize() { return size; }
 
 /* Search function
  * int target: value of element you want to find

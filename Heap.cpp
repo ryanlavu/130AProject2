@@ -196,16 +196,16 @@ class Heap {
 		// If max heap then simply return the root
 		if(max) return getRoot();
 
-		T max = heap[0];
+		T maxValue = heap[0];
 
 		// If min heap then iterate through the entire vector
 		for(int i = 1; i < heap.size(); i++) {
 
-			if(heap[i] > max) max = heap[i];
+			if(heap[i] > maxValue) maxValue = heap[i];
 
 		}
 
-		return max;
+		return maxValue;
 
 	}
 

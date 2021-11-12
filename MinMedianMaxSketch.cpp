@@ -1,22 +1,28 @@
-#include "MinMedianMaxSketch.h"
+#include "string"
+#include "iostream"
+#include "Heap.cpp"
 
-	//private:
-		//int size;
-		//Heap minHeap;
-		//Heap maxHeap;
-		//T min, median, max;
-		//bool found;
-	//public:
-		template <class T>
-		MinMedianMaxSketch<T> :: MinMedianMaxSketch()
+template <class T>
+class MinMedianMaxSketch
+{
+	public:
+
+		int size;
+		T median;
+		T min;
+		T max;
+		bool found;
+		Heap minHeap;
+		Heap maxHeap;
+	
+		MinMedianMaxSketch()
 		{
 			minHeap = new Heap(false);
 			maxHeap = new Heap(true);
 			size = 0;
 		}
 
-		template <class T>
-		void MinMedianMaxSketch<T>::insert(int newElement)
+		void insert(int newElement)
 		{
 			if(size == 0)
 			{
@@ -53,8 +59,7 @@
 			}
 		}
 
-		template <class T>
-		void MinMedianMaxSketch<T>::remove(int goneElement)
+		void remove(int goneElement)
 		{
 			if(size == 0)
 			{
@@ -88,32 +93,27 @@
 			}
 		}
 
-		template <class T>
-		T MinMedianMaxSketch<T>::get_median()
+		T get_median()
 		{
 			return median;
 		}
 
-		template <class T>
-		T MinMedianMaxSketch<T>:: get_minimum()
+		T get_minimum()
 		{
 			return min;
 		}
 
-		template <class T>
-		T MinMedianMaxSketch<T>::get_maximum()
+		T get_maximum()
 		{
 			return max;
 		}
 
-		template <class T>
-		int MinMedianMaxSketch<T>::get_size()
+		int get_size()
 		{
 			return size;
 		}
 
-		template <class T>
-		bool MinMedianMaxSketch<T>::search(T findElement)
+		bool search(T findElement)
 		{
 			found = false;
 			if(size == 0)
@@ -130,3 +130,5 @@
 			}
 			return found;
 		}
+
+};

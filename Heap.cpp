@@ -7,14 +7,18 @@ using namespace std;
 
 template<class T>
 class Heap {
-
+	
+	private:
+		bool max;
+		vector<T> heap;
+		int size;
 	public:
 
 	/* Constructor
 	* bool isMax: true = max heap, false = min heap
 	*/
 	Heap(bool isMax) {
-		
+		//cout <<"Initializing this heap to be a " << isMax << " maxHeap" << endl;
 		max = isMax;
 		size = 0;
 		
@@ -182,10 +186,10 @@ class Heap {
 		// If min heap then simply return the root
 		if(!max)
 		{
-			cout << "returns root as minimum for min heaps, this heap is a " << max << " maxHeap" << endl;
+			//cout << "returns root as minimum for min heaps, this heap is a " << max << " maxHeap" << endl;
 			return getRoot();
 		}
-		cout << "parses through heap to find minimum for max heaps, this heap is a " << max << " maxHeap, the size of this heap is also = " << size << endl;
+		//cout << "parses through heap to find minimum for max heaps, this heap is a " << max << " maxHeap, the size of this heap is also = " << size << endl;
 		T min = heap[0];
 
 		// If max heap then iterate through the entire vector
@@ -269,10 +273,6 @@ class Heap {
 
 	void setSize(int setTo){ size = setTo; }
 		
-	private:
-		bool max;
-		vector<T> heap;
-		int size;
 	
 };
 

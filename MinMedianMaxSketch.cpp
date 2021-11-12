@@ -18,6 +18,7 @@ class MinMedianMaxSketch
 		MinMedianMaxSketch()
 		{
 			minHeap = new Heap<T>(false);
+			cout << "minHeap is a " << minHeap.
 			maxHeap = new Heap<T>(true);
 			size = 0;
 		}

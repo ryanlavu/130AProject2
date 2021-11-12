@@ -14,8 +14,8 @@ int main(int argc, char *argv[]) {
 
 		if(heapOrSketch == "heap")
 		{
-			Heap<int> maxHeap = new Heap<int>(true);
-			Heap<int> minHeap = new Heap<int>(false);
+			Heap<int> maxHeap(true);
+			Heap<int> minHeap(false);
 			
 			//insert into heaps
 			ifstream insertFile(argv[2]);
@@ -65,8 +65,8 @@ int main(int argc, char *argv[]) {
 			//minHeap.printOut();
 			//cout << "after removing elements heap\nmaxHeap:" << endl;
 			//maxHeap.printOut();
-			cout << "Min Heap:\n" << "Size = " << minHeap.getSize() << "\nMin = " << minHeap.getRoot() << "\nMax = " << minHeap.getMax() << endl;
-			cout << "Max Heap:\n" << "Size = " << maxHeap.getSize() << "\nMin = " << maxHeap.getMin() << "\nMax = " << maxHeap.getRoot() << endl;
+			cout << "Min Heap:\n" << "Size = " << minHeap.getSize() << "\nMin = " << minHeap.getMin() << "\nMax = " << minHeap.getMax() << endl;
+			cout << "Max Heap:\n" << "Size = " << maxHeap.getSize() << "\nMin = " << maxHeap.getMin() << "\nMax = " << maxHeap.getMax() << endl;
 		}
 		else
 		{

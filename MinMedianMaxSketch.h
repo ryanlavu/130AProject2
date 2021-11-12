@@ -3,6 +3,7 @@
 
 #include "string"
 #include "iostream"
+#include "Heap.cpp"
 
 using namepsace std;
 template <class T>

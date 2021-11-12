@@ -2,7 +2,6 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <cmath>
 #include "Heap.h"
 #include "Heap.cpp"
 #include "MinMedianMaxSketch.h"

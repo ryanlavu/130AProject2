@@ -22,7 +22,7 @@ class MinMedianMaxSketch
 			size = 0;
 		}
 
-		void insert(int newElement)
+		void insert(T newElement)
 		{
 			
 			if(size == 0)
@@ -60,7 +60,7 @@ class MinMedianMaxSketch
 			}
 		}
 
-		void remove(int goneElement)
+		void remove(T goneElement)
 		{
 			if(size == 0)
 			{

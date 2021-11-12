@@ -27,6 +27,10 @@ int main(int argc, char *argv[]) {
 				maxHeap.insert(queryToInt);
 				minHeap.insert(queryToInt);
 			}	
+			//cout << "after inserting int heap\nmaxHeap:" << endl;
+			//maxHeap.printOut();
+			//cout << "after inserting int eahp\nminJeap:" << endl;
+			//minHeap.printOut();
 			insertFile.close();
 
 
@@ -57,10 +61,12 @@ int main(int argc, char *argv[]) {
 			deleteFile.close();
 
 			//report stats
-			minHeap.printOut();
-			maxHeap.printOut();
+			//cout << "after removing elements heap\nminHeap:" << endl;
+			//minHeap.printOut();
+			//cout << "after removing elements heap\nmaxHeap:" << endl;
+			//maxHeap.printOut();
 			cout << "Min Heap:\n" << "Size = " << minHeap.getSize() << "\nMin = " << minHeap.getRoot() << "\nMax = " << minHeap.getMax() << endl;
-			cout << "Max Heap:\n" << "Size = " << maxHeap.getSize() << "\nMin = " << maxHeap.getRoot() << "\nMax = " << maxHeap.getMax() << endl;
+			cout << "Max Heap:\n" << "Size = " << maxHeap.getSize() << "\nMin = " << maxHeap.getMin() << "\nMax = " << maxHeap.getRoot() << endl;
 		}
 		else
 		{

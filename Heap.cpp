@@ -180,8 +180,12 @@ class Heap {
 	T getMin() {
 
 		// If min heap then simply return the root
-		if(!max) return getRoot();
-
+		if(!max)
+		{
+			cout << "returns root as minimum for min heaps, this heap is a " << max << " maxHeap" << endl;
+			return getRoot();
+		}
+		cout << "parses through heap to find minimum for max heaps, this heap is a " << max << " maxHeap, the size of this heap is also = " << size << endl;
 		T min = heap[0];
 
 		// If max heap then iterate through the entire vector

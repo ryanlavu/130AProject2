@@ -17,7 +17,6 @@ class Heap {
 		
 		max = isMax;
 		size = 0;
-		heap = new vector <T>();
 		
 	}
 

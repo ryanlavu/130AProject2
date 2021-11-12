@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
 		}
 		else
 		{
-			MinMedianMaxSketch<int> sketch = new MinMedianMaxSketch<int>();
+			MinMedianMaxSketch<int> * sketch = new MinMedianMaxSketch<int>();
 
 			//insert into sketch
 			ifstream insertFile(argv[2]);
@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
 				if(query.empty())
 					break;
 				queryToInt = stoi(query);
-				sketch.insert(queryToInt);
+				sketch->insert(queryToInt);
 			}	
 			insertFile.close();
 
@@ -82,12 +82,12 @@ int main(int argc, char *argv[]) {
 				if(query.empty())
 					break;
 				queryToInt = stoi(query);
-				sketch.remove(queryToInt);
+				sketch->remove(queryToInt);
 			}	
 			deleteFile.close();
 
 			//report stats
-			cout << "MinMedianMaxSketch:\n" << "Size = " << sketch.get_size() << "\nMin = " << sketch.get_minimum() << "\nMax = " << sketch.get_maximum() << "\nMedian = " << sketch.get_median() << endl;
+			cout << "MinMedianMaxSketch:\n" << "Size = " << sketch->get_size() << "\nMin = " << sketch->get_minimum() << "\nMax = " << sketch->get_maximum() << "\nMedian = " << sketch->get_median() << endl;
 		}
 		
 }

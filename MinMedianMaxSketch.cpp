@@ -1,4 +1,4 @@
-#include MinMedianMaxSketch.h
+#include "MinMedianMaxSketch.h"
 
 	//private:
 		//int size;
@@ -89,19 +89,19 @@
 		}
 
 		template <class T>
-		int MinMedianMaxSketch<T>::get_median()
+		T MinMedianMaxSketch<T>::get_median()
 		{
 			return median;
 		}
 
 		template <class T>
-		int MinMedianMaxSketch<T>:: get_minimum()
+		T MinMedianMaxSketch<T>:: get_minimum()
 		{
 			return min;
 		}
 
 		template <class T>
-		int MinMedianMaxSketch<T>::get_maximum()
+		T MinMedianMaxSketch<T>::get_maximum()
 		{
 			return max;
 		}
@@ -113,20 +113,20 @@
 		}
 
 		template <class T>
-		bool MinMedianMaxSketch<T>::search(int findElement)
+		bool MinMedianMaxSketch<T>::search(T findElement)
 		{
 			found = false;
 			if(size == 0)
 			{
-				return false
+				return false;
 			}
 			else if(findElement > maxHeap.get_root())
 			{
-				found = minHeap.search(newElement);
+				found = minHeap.search(findElement);
 			}
 			else if(findElement > minHeap.get_root())
 			{
-				found = maxHeap.search(newElement);
+				found = maxHeap.search(findElement);
 			}
 			return found;
 		}

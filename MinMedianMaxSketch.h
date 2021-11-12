@@ -3,12 +3,12 @@
 
 #include "string"
 #include "iostream"
+#include "Heap.cpp"
 
-using namepsace std;
 template <class T>
 class MinMedianMaxSketch
 {
-	private:
+	public:
 
 		int size;
 		T median;
@@ -17,36 +17,23 @@ class MinMedianMaxSketch
 		bool found;
 		Heap minHeap;
 		Heap maxHeap;
-	public:
-		MinMedianMaxSketch()
-		{
-		}
+	
+		MinMedianMaxSketch();
 
-		void insert(T newElement)
-		{
-		}
+		void insert(T newElement);
 
-		void remove(T goneElement)
-		{
-		}
+		void remove(T goneElement);
 
-		T get_median()
-		{}
+		T get_median();
 
-		T get_minimum()
-		{}
+		T get_minimum();
 
-		T get_maximum()
-		{
-		}
+		T get_maximum();
 
-		int get_size()
-		{
-		}
+		int get_size();
 
-		bool search(T findElement)
-		{}
+		bool search(T findElement);
 
-}
+};
 
-#endif MINMEDIANMAXSKETCH_H
+#endif

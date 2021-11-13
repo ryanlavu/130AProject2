@@ -128,19 +128,19 @@ class Heap {
 			if(heap.size() <= leftChild) left = false;
 			if(heap.size() <= rightChild) right = false;
 
-			if(max && (heap[targetIndex] < heap[leftChild]) && left) {
-
-				T temp = heap[targetIndex];
-				heap[targetIndex] = heap[leftChild];
-				heap[leftChild] = temp;
-				targetIndex = leftChild;
-
-			} else if(max && (heap[targetIndex] < heap[rightChild]) && right) {
+			if(max && (heap[targetIndex] < heap[rightChild]) && right && (heap[rightChild] > heap[leftChild])) {
 
 				T temp = heap[targetIndex];
 				heap[targetIndex] = heap[rightChild];
 				heap[rightChild] = temp;
 				targetIndex = rightChild;
+				
+			} else if(max && (heap[targetIndex] < heap[leftChild]) && left) {
+				
+				T temp = heap[targetIndex];
+				heap[targetIndex] = heap[leftChild];
+				heap[leftChild] = temp;
+				targetIndex = leftChild;
 
 			} else if(!max && (heap[targetIndex] > heap[leftChild]) && left) {
 

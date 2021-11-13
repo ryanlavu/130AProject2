@@ -98,6 +98,8 @@ int main(int argc, char *argv[]) {
 
 			//report stats
 			cout << "MinMedianMaxSketch:\n" << "Size = " << sketch->get_size() << "\nMin = " << sketch->get_minimum() << "\nMax = " << sketch->get_maximum() << "\nMedian = " << sketch->get_median() << endl;
+			//sketch->printMaxHeap();
+			//sketch->printMinHeap();	
 		}
 		
 }

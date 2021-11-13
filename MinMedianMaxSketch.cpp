@@ -18,33 +18,40 @@ class MinMedianMaxSketch
 		MinMedianMaxSketch()
 		{
 			minHeap = new Heap<T>(false);
-			cout << "minHeap is a " << minHeap->getIsMax() << " maxHeap" << endl;
+			//cout << "minHeap is a " << minHeap->getIsMax() << " maxHeap" << endl;
 			maxHeap = new Heap<T>(true);
-			cout << "maxHeap is a " << maxHeap->getIsMax() << " maxHeap" << endl;
+			//cout << "maxHeap is a " << maxHeap->getIsMax() << " maxHeap" << endl;
 			size = 0;
 		}
 
 		void insert(T newElement)
 		{
-			
+			//if(newElement == 252)
+				//cout << "INSERTING THIS ELEMENT = " << newElement << endl;	
 			if(size == 0)
 			{
 				maxHeap->insert(newElement);
-				min = newElement;
-				max = newElement;
-				median = newElement;
+				//min = newElement;
+				//max = newElement;
+				//median = newElement;
 			}
 			else if(newElement > maxHeap->getRoot())
 			{
 				minHeap->insert(newElement);
 				//max = minHeap->getMax();
 			}
-			else if(newElement > minHeap->getRoot())
+			else if(newElement < minHeap->getRoot())	
 			{
 				maxHeap->insert(newElement);
 				//min = maxHeap->getMin();
 			}
 			size++;
+
+			/*if(newElement ==252)
+			{
+				cout << "IS 252 IN MAXHEAP? " << maxHeap->search(252) << endl;
+				cout << "IS 252 IN MINHEAP? " << minHeap->search(252) << endl;
+			}*/
 
 			if(minHeap->getSize() - maxHeap->getSize() > 1)
 			{
@@ -60,6 +67,12 @@ class MinMedianMaxSketch
 			{
 				//median = maxHeap->getRoot();
 			}
+
+			/*if(newElement ==252)
+			{
+				cout << "IS 252 IN MAXHEAP? " << maxHeap->search(252) << endl;
+				cout << "IS 252 IN MINHEAP? " << minHeap->search(252) << endl;
+			}*/
 		}
 
 		void remove(T goneElement)
@@ -73,7 +86,7 @@ class MinMedianMaxSketch
 				minHeap->remove(goneElement);
 				//max = minHeap->getMax();
 			}
-			else if(goneElement > minHeap->getRoot())
+			else if(goneElement < minHeap->getRoot())
 			{
 				maxHeap->remove(goneElement);
 				//min = maxHeap->getMin();
@@ -98,7 +111,12 @@ class MinMedianMaxSketch
 
 		T get_median()
 		{
-			return median;
+			if(minHeap->getSize() - maxHeap->getSize() > 0)
+				return minHeap->getRoot();
+			else if(maxHeap->getSize() - minHeap->getSize() > 0)
+				return maxHeap->getRoot();
+			else
+				return maxHeap->getRoot();
 		}
 
 
@@ -133,6 +151,15 @@ class MinMedianMaxSketch
 				found = maxHeap->search(findElement);
 			}
 			return found;
+		}
+
+		void printMaxHeap()
+		{
+			maxHeap->printOut();
+		}
+		void printMinHeap()
+		{
+			minHeap->printOut();
 		}
 
 };

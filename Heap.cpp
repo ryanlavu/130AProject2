@@ -31,7 +31,7 @@ class Heap {
 	
 	void printOut()
 	{
-		for(int i = 0; i < 15; i++)
+		for(int i = 0; i < heap.size(); i++)
 		{
 			cout << "for a " << max << " maxheap at index i=" << i << " is elememt ="<< heap[i] << endl;
 		}

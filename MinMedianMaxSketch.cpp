@@ -37,28 +37,28 @@ class MinMedianMaxSketch
 			else if(newElement > maxHeap->getRoot())
 			{
 				minHeap->insert(newElement);
-				max = minHeap->getMax();
+				//max = minHeap->getMax();
 			}
 			else if(newElement > minHeap->getRoot())
 			{
 				maxHeap->insert(newElement);
-				min = maxHeap->getMin();
+				//min = maxHeap->getMin();
 			}
 			size++;
 
 			if(minHeap->getSize() - maxHeap->getSize() > 1)
 			{
 				maxHeap->insert(minHeap->extractRoot());
-				median = minHeap->getRoot();
+				//median = minHeap->getRoot();
 			}
 			else if(minHeap->getSize() - maxHeap->getSize() < -1 )
 			{
 				minHeap->insert(maxHeap->extractRoot());
-				median = maxHeap->getRoot();
+				//median = maxHeap->getRoot();
 			}
 			else if(minHeap->getSize() == maxHeap->getSize())
 			{
-				median = maxHeap->getRoot();
+				//median = maxHeap->getRoot();
 			}
 		}
 
@@ -71,28 +71,28 @@ class MinMedianMaxSketch
 			else if(goneElement > maxHeap->getRoot())
 			{
 				minHeap->remove(goneElement);
-				max = minHeap->getMax();
+				//max = minHeap->getMax();
 			}
 			else if(goneElement > minHeap->getRoot())
 			{
 				maxHeap->remove(goneElement);
-				min = maxHeap->getMin();
+				//min = maxHeap->getMin();
 			}
 			size--;
 
 			if(minHeap->getSize() - maxHeap->getSize() > 1)
 			{
 				maxHeap->insert(minHeap->extractRoot());
-				median = minHeap->getRoot();
+				//median = minHeap->getRoot();
 			}
 			else if(minHeap->getSize() - maxHeap->getSize() < -1 )
 			{
 				minHeap->insert(maxHeap->extractRoot());
-				median = maxHeap->getRoot();
+				//median = maxHeap->getRoot();
 			}
 			else if(minHeap->getSize() == maxHeap->getSize())
 			{
-				median = maxHeap->getRoot();
+				//median = maxHeap->getRoot();
 			}
 		}
 
@@ -101,14 +101,15 @@ class MinMedianMaxSketch
 			return median;
 		}
 
+
 		T get_minimum()
 		{
-			return min;
+			return maxHeap->getMin();
 		}
 
 		T get_maximum()
 		{
-			return max;
+			return minHeap->getMax();
 		}
 
 		int get_size()

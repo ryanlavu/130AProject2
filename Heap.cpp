@@ -47,8 +47,8 @@ class Heap {
 
 		// Function that bubbles up the last element
 		orderLast();
-		if(max)
-			cout <<"max in the insert function " << getMax() << endl;
+		//if(max)
+			//cout <<"max in the insert function " << getMax() << endl;
 		setSize(getSize() + 1);
 		
 	}
@@ -57,8 +57,8 @@ class Heap {
 	* int target: element you want to remove from heap
 	*/
 	void remove(T target) {
-		if(target == 99957 && max)
-			cout << "TARGET FOUND IS******* = " << 99957 << endl;
+		//if(target == 99957 && max)
+			//cout << "TARGET FOUND IS******* = " << 99957 << endl;
 		int targetIndex = -1;
 
 		// Find index of the target we want to remove
@@ -70,15 +70,15 @@ class Heap {
 
 		// If target isn't found exit
 		if(targetIndex == -1) return;
-		if(max)
-			cout << "HEAP AT TARGETINDEX******** = " << heap[targetIndex] << endl;
+		//if(max)
+			//cout << "HEAP AT TARGETINDEX******** = " << heap[targetIndex] << endl;
 		// Replace the value at targetIndex with the last value
 		T temp;
 
 		heap[targetIndex] = heap.back();
 
-		if(max)
-			cout << "HEAP AFTER HEAP.BACK()****@@@## = " << heap[targetIndex] << endl;
+		//if(max)
+			//cout << "HEAP AFTER HEAP.BACK()****@@@## = " << heap[targetIndex] << endl;
 
 		// Remove the last element which should be the target
 		heap.pop_back();
@@ -110,8 +110,8 @@ class Heap {
 			}
 
 		}
-		if(max)
-			cout << "first max before shifted, before second return " << getMax() << endl;
+		//if(max)
+			//cout << "first max before shifted, before second return " << getMax() << endl;
 		// Check if the element moved up if so return
 		if(shifted) return;
 
@@ -157,8 +157,8 @@ class Heap {
 				targetIndex = leftChild;
 
 			} else {
-				if(max)
-					cout << "max in second return " << getMax() << endl;
+				//if(max)
+					//cout << "max in second return " << getMax() << endl;
 				return;
 
 			}
